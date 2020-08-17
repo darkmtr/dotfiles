@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	termite
+	kitty
 
 # program launcher
 super + d
@@ -119,3 +119,21 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# audio keybinds
+XF86AudioRaiseVolume
+	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%
+
+# brightness keybinds
+XF86MonBrightnessUp
+	xbacklight -inc 10
+
+XF86MonBrightnessDown
+	xbacklight -dec 10
+
+# toggle audio mute/unmute
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
